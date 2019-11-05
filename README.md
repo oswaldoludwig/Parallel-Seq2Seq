@@ -27,7 +27,7 @@ Regarding forgetting encoder output during decoder steps, this occurs in the can
   <img src="https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq3.png">
 </p>
 
-where **x** is the decoder input (the encoder output) *y<sub>i</sub>* is the decoder output at step *i*, *f<sub>α</sub>* represents the set of operations that the input and forget gates apply on the state variables, and *α* is the parameter set of these gates.
+where *g*(**x**) is the decoder input (i.e. the encoder output) *y<sub>i</sub>* is the decoder output at step *i*, *f<sub>α</sub>* represents the set of operations that the input and forget gates apply on the state variables, and *α* is the parameter set of these gates.
 Note that the nested application of operations on **x**, such as the operation applied by the forget gate, can erase the contextual information along the decoder iterations. My architecture models p(**y**|**x**) like this:
 
 <p align="center">
