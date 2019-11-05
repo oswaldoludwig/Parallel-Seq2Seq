@@ -23,7 +23,7 @@ Note that the nested application of operations on **x**, such as the operation a
 
 ![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq4.png)
 
-where *f<sub>β</sub>*(·) represents the LSTM that encodes the incomplete answer (*y*<sub>0</sub> . . . *y*<sub>i−1</sub>). Since the encoder output *g*(*x*) is provided to the decoder at each decoding iteration *i*, it is not subject to nested functions. This also can be solved using the attention mechanism [3], such as in the LAS architecture, but my model solves both problems at the same time for a very fast training.
+where *f<sub>β</sub>*(·) represents the LSTM that encodes the incomplete output sequence (*y*<sub>0</sub> . . . *y*<sub>i−1</sub>). Since the encoder output *g*(*x*) is provided to the decoder at each decoding iteration *i*, it is not subject to nested functions. This also can be solved using the attention mechanism [3], such as in the LAS architecture, but my model solves both problems at the same time for a very fast training.
 
 
 **Use**
