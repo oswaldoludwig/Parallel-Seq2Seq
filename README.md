@@ -1,6 +1,6 @@
 # Parallel-Seq2Seq (PS2S)
 PS2S is a new seq2seq model for fast training.
-I proposed this model in July 2017 in the context of the [Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras) project, in case of publication using PS2S, please cite paper [[1]](https://arxiv.org/pdf/1711.10122.pdf). As this model was successfully applied to generative chatbots, I’m now providing a general purpose TensorFlow-based PS2S toolbox, and to give you a taste of its performance, I’ve also provided a didactic toy example in which the user can train a PS2S-based neural translator in just 15 minutes of CPU processing.
+I proposed this model in July 2017 in the context of the [Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras) project, in case of publication using PS2S, please cite paper [[1]](https://arxiv.org/pdf/1711.10122.pdf). As this model was successfully applied to generative chatbots, I’m now providing a general purpose TensorFlow-based PS2S toolbox, and to give you a taste of its performance, I’ve also provided a didactic toy example in which the user can train a PS2S-based neural translator in just 15 minutes of CPU processing (just run toy_example_neural_translation.py).
 The figure below illustrates the PS2S graph.
 
 <p align="center">
@@ -40,7 +40,7 @@ where *f<sub>β</sub>*(·) represents the LSTM that encodes the incomplete outpu
 **Use**
 
 
-The example toy_example_neural_translation.py is fully commented. This generates the model, trains the model using a set of English-Portuguese sentences (within the code), and decodes using the same training material. Obviously, the small training dataset cannot provide generalization capacity to the model, the idea is to show how the data can be quickly fitted with WER=0.   
+The example **toy_example_neural_translation.py** is fully commented. This generates the model, trains the model using a set of English-Portuguese sentences (within the code), and decodes using the same training material. Obviously, the small training dataset cannot provide generalization capacity to the model, the idea is to show how the data can be quickly fitted with WER=0.   
 
 The Par_seq2seq.py toolbox is made up of two classes: initialize and operations. The first class receives the configuration of the model to instantiate an object. This class has the setup_ps2s method that creates and saves a TF graph of the PS2S model. The model parameters are:
 
