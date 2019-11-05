@@ -21,7 +21,7 @@ and thus, with *t*’>*t*:
 </p>
 
 where *v<sub>t</sub>* is the input to the forget gate and σ is the sigmoid function ranging from 0 to 1. Therefore, due to σ, the above product can decay to zero exponentially.
-Regarding forgetting encoder output during decoder steps, this occurs in the canonical seq2seq model because the encoder output is only used to initialize the decoder state. The LSTM state, *h*, is adjusted for each decoding step as follows [1]: 
+Regarding forgetting encoder output during decoder steps, this occurs in the canonical seq2seq model because the encoder output is only used to initialize the decoder state. The LSTM state, *h*, is updated for each decoding step as follows [1]: 
 
 <p align="center">
   <img src="https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq3.png">
