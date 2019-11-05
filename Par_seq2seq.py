@@ -59,7 +59,7 @@ class operations:
             count += 1
         return Y
     def save_ps2s(self):
-        self.saver.save(self.session, 'PS2S')
+        self.saver.save(self.session, './PS2S')
         print('Session saved')
         
 
@@ -136,6 +136,6 @@ class initialize:
             if os.path.isfile('PS2S.meta'):
                 ans = raw_input('\n\n\n\n A parallel seq2seq model already exists, do you want to overwrite (o) or resume training (r)? \n')
                 if ans == 'o':
-                    saver.save(session, 'PS2S')
+                    saver.save(session, './PS2S')
             else:
-                saver.save(session, 'PS2S')
+                saver.save(session, './PS2S')
