@@ -10,26 +10,35 @@ The figure below illustrates the PS2S graph.
 When I proposed this model, I had two things in mind: avoiding the vanishing gradient and avoiding forgetting encoder information during decoding.
 As seen in the figure above, in the PS2S the two LSTM blocks are arranged in parallel, while the canonical seq2seq (as well as the LAS model) has the recurrent layers of encoder and decoder arranged in series. Recurrent layers are unfolded during backpropagation through time, resulting in a large number of nested functions and thus a greater risk of vanishing gradient, which is worsened by the cascade of recurrent layers of the canonical seq2seq model, even for gated architectures, like the LSTM, as can be seen in the derivative of the LSTM cell state *s<sub>t</sub>* with respect to its immediate predecessor *s<sub>t-1</sub>* [2]:
 
-![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq1.png)
+<p align="center">
+  <img src="https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq1.png">
+</p>
 
 and thus, with *t*’>*t*:
 
-![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq2.png)
+<p align="center">
+  <img src="https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq2.png">
+</p>
 
 where *v<sub>t</sub>* is the input to the forget gate and σ is the sigmoid function ranging from 0 to 1. Therefore, due to σ, the above product can decay to zero exponentially.
 Regarding forgetting encoder output during decoder steps, this occurs in the canonical seq2seq model because the encoder output is only used to initialize the decoder state. The LSTM state, *h*, is adjusted for each decoding step as follows [1]: 
 
-![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq3.png)
+<p align="center">
+  <img src="https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq3.png">
+</p>
 
 where **x** is the decoder input (the encoder output) *y<sub>i</sub>* is the decoder output at step *i*, *f<sub>α</sub>* represents the set of operations that the input and forget gates apply on the state variables, and *α* is the parameter set of these gates.
 Note that the nested application of operations on **x**, such as the operation applied by the forget gate, can erase the contextual information along the decoder iterations. My architecture models p(**y**|**x**) like this:
 
-![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq4.png)
+<p align="center">
+  <img src="https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq4.png">
+</p>
 
 where *f<sub>β</sub>*(·) represents the LSTM that encodes the incomplete output sequence (*y*<sub>0</sub> . . . *y*<sub>i−1</sub>). Since the encoder output *g*(*x*) is provided to the decoder at each decoding iteration *i*, it is not subject to nested functions. This also can be solved using the attention mechanism [3], such as in the LAS architecture, but my model solves both problems at the same time for a very fast training.
 
 
 **Use**
+
 
 The example toy_example_neural_translation.py is fully commented. This generates the model, trains the model using a set of English-Portuguese sentences (within the code), and decodes using the same training material. Obviously, the small training dataset cannot provide generalization capacity to the model, the idea is to show how the data can be quickly fitted with WER=0.   
 
