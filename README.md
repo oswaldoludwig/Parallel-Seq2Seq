@@ -2,7 +2,10 @@
 PS2S is a new seq2seq model for fast training.
 I proposed this model in July 2017 in the context of the [Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras) project, see [[1]](https://arxiv.org/abs/1711.10122). In case of publication with this code, please cite this paper. As this model was successfully applied to generative chatbots, I’m now providing a general purpose TensorFlow-based PS2S toolbox, and to give you a taste of its performance, I’ve also provided a didactic toy example in which the user can train a PS2S-based neural translator in just 15 minutes of CPU processing.
 The figure below illustrates the PS2S graph.
-![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/graph.png)
+
+<p align="center">
+  <img width="460" height="550" src="https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/graph.png">
+</p>
 
 When I proposed this model, I had two things in mind: avoiding the vanishing gradient and avoiding forgetting encoder information during decoding.
 As seen in the figure above, in the PS2S the two LSTM blocks are arranged in parallel, while the canonical seq2seq (as well as the LAS model) has the recurrent layers of encoder and decoder arranged in series. Recurrent layers are unfolded during backpropagation through time, resulting in a large number of nested functions and thus a greater risk of vanishing gradient, which is worsened by the cascade of recurrent layers of the canonical seq2seq model, even for gated architectures, like the LSTM, as can be seen in the derivative of the LSTM cell state *s<sub>t</sub>* with respect to its immediate predecessor *s<sub>t-1</sub>* [2]:
