@@ -1,6 +1,6 @@
 # Parallel-Seq2Seq (PS2S)
 PS2S is a new seq2seq model for fast training.
-I proposed this model in July 2017 in the context of the [Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras) project, see [[1]](https://arxiv.org/abs/1711.10122). In case of publication with this code, please cite this paper. As this model was successfully applied to generative chatbots, I’m now providing a general purpose TensorFlow-based PS2S toolbox, and to give you a taste of its performance, I’ve also provided a didactic toy example in which the user can train a PS2S-based neural translator in just 15 minutes of CPU processing.
+I proposed this model in July 2017 in the context of the [Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras) project, in case of publication using PS2S, please cite paper [[1]](https://arxiv.org/abs/1711.10122). As this model was successfully applied to generative chatbots, I’m now providing a general purpose TensorFlow-based PS2S toolbox, and to give you a taste of its performance, I’ve also provided a didactic toy example in which the user can train a PS2S-based neural translator in just 15 minutes of CPU processing.
 The figure below illustrates the PS2S graph.
 
 <p align="center">
