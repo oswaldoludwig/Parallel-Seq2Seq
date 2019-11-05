@@ -1,7 +1,7 @@
 # Parallel-Seq2Seq (PS2S)
 PS2S is a new seq2seq model for fast training.
 I proposed this model in July 2017 in the context of the [Seq2seq-Chatbot-for-Keras](https://github.com/oswaldoludwig/Seq2seq-Chatbot-for-Keras) project, see [[1]](https://arxiv.org/abs/1711.10122). In case of publication with this code, please cite this paper. As this model was successfully applied to generative chatbots, I’m now providing a general purpose TensorFlow-based PS2S toolbox, and to give you a taste of its performance, I’ve also provided a didactic toy example in which the user can train a PS2S-based neural translator in just 15 minutes of CPU processing.
-The figure below illustrates the PS2S graph. 
+The figure below illustrates the PS2S graph.
 ![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/graph.png)
 
 When I proposed this model, I had two things in mind: avoiding the vanishing gradient and avoiding forgetting encoder information during decoding.
@@ -14,12 +14,12 @@ and thus, with *t*’>*t*:
 ![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq2.png)
 
 where *v<sub>t</sub>* is the input to the forget gate and σ is the sigmoid function ranging from 0 to 1. Therefore, due to σ, the above product can decay to zero exponentially.
-Regarding forgetting encoder output during decoder steps, this occurs in the canonical seq2seq model because the encoder output is only used to initialize the decoder state. The LSTM state, h, is adjusted for each decoding step as follows [1]: 
+Regarding forgetting encoder output during decoder steps, this occurs in the canonical seq2seq model because the encoder output is only used to initialize the decoder state. The LSTM state, *h*, is adjusted for each decoding step as follows [1]: 
 
 ![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq3.png)
 
-where *x* is the decoder input (the encoder output) *y<sub>i</sub>* is the decoder output at step *i*, *f<sub>α</sub>* represents the set of operations that the input and forget gates apply on the state variables, and *α* is the parameter set of these gates.
-Note that the nested application of operations on *x*, such as the operation applied by the forget gate, can erase the contextual information along the decoder iterations. My architecture models p(*y*|*x*) like this:
+where **x** is the decoder input (the encoder output) *y<sub>i</sub>* is the decoder output at step *i*, *f<sub>α</sub>* represents the set of operations that the input and forget gates apply on the state variables, and *α* is the parameter set of these gates.
+Note that the nested application of operations on **x**, such as the operation applied by the forget gate, can erase the contextual information along the decoder iterations. My architecture models p(**y**|**x**) like this:
 
 ![alt text](https://github.com/oswaldoludwig/Parallel-Seq2Seq/blob/master/eq4.png)
 
