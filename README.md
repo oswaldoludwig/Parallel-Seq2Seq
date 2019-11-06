@@ -46,8 +46,8 @@ The Par_seq2seq.py toolbox is made up of two classes: initialize and operations.
 
 1.	number of LSTM layers to encode the input sequence: n_layers_EI
 2.	number of LSTM layers to encode the incomplete output sequence: n_layers_EO
-3.	dimension of the LSTM layers that encodes the input sequence: dim_EI
-4.	dimension of the LSTM layers that encodes the incomplete output sequence: dim_EO
+3.	dimension of the LSTM layers that encode the input sequence: dim_EI
+4.	dimension of the LSTM layers that encode the incomplete output sequence: dim_EO
 5.	dimension of the input vectors: dim_input
 6.	dimension of the output vectors: dim_output
 7.	maximum length of the input sequence: input_seq_len
