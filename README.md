@@ -57,7 +57,7 @@ The second class, operations, must be instantiated in the TF section and has the
 1.	get_graph, which imports the TF graph previously created using the setup_ps2s method of class initialize.
 2.	train_ps2s, which performs a training step (update the model weights) using a batch of training examples. This method takes as input a batch of input and output sequences and the learning rate.
 3.	save_ps2s, which saves the model checkpoint.
-4.	greedy_decoder, which takes the encoded input sequence, the vectors representing the beginning and end of the sequence and decodes it. No beam search decoder so far.
+4.	greedy_decoder, which takes the encoded input sequence, the vectors representing the beginning and end of the sequence and decodes it. For beam search decoder, use Par_seq2seq_beam_search instead of Par_seq2seq.
 
 
 **References**
